@@ -229,3 +229,10 @@ body {
 .home-button-display:hover {
     background-color: #1666e8;
 }
+
+/* Gaya tambahan untuk tabel hasil pencarian di halaman delete_data.html */
+.search-results-table {
+    width: 50%; /* Lebar tabel setengah dari lebar halaman */
+    margin-left: auto; /* Pusatkan tabel di tengah halaman */
+    margin-right: auto;
+}
