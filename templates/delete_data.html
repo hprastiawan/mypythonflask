@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penghapusan Data</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body class="red-theme">
+    <h2>Penghapusan Data</h2>
+    <div class="form-container">
+        <form action="/delete" method="post">
+            <label for="nama">Nama:</label>
+            <input type="text" name="nama" id="nama" placeholder="Masukkan nama yang ingin dicari">
+            <br>
+            <input type="submit" value="Cari">
+        </form>
+        <!-- Cek apakah ada data untuk ditampilkan -->
+        {% if data_list %}
+        <!-- Tabel untuk menampilkan hasil pencarian -->
+        <table class="search-results-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nama</th>
+                    <th>Alamat</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in data_list %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.nama }}</td>
+                    <td>{{ item.alamat }}</td>
+                    <td>
+                        <button onclick="confirmDelete('{{ item.nama }}', {{ item.id }})">Hapus</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+        <a href="/" class="home-button">Kembali ke Home</a>
+    </div>
+
+    <script>
+        function confirmDelete(nama, id) {
+            const isConfirmed = confirm(`Apakah Anda yakin ingin menghapus data ${nama}?`);
+            if (isConfirmed) {
+                // Mengirim request ke endpoint DELETE dengan ID yang relevan
+                fetch(`/api/data/${id}`, {
+                    method: 'DELETE',
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === "Data berhasil dihapus") {
+                        alert("Data berhasil dihapus!");
+                        // Setelah data berhasil dihapus, muat ulang halaman untuk memperbarui tampilan tabel
+                        location.reload();
+                    } else {
+                        alert("Terjadi kesalahan saat menghapus data. Silakan coba lagi.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("Terjadi kesalahan saat menghapus data. Silakan coba lagi.");
+                });
+            }
+        }
+    </script>    
+</body>
+</html>

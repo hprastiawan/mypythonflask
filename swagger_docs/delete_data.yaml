@@ -1,0 +1,11 @@
+parameters:
+  - name: data_id
+    in: path
+    description: ID dari data yang ingin dihapus
+    required: true
+    type: integer
+responses:
+  200:
+    description: Data berhasil dihapus
+  404:
+    description: Data tidak ditemukan

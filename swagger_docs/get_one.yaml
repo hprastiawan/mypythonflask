@@ -1,0 +1,13 @@
+parameters:
+  - name: data_id
+    in: path
+    description: ID dari data yang ingin diambil
+    required: true
+    type: integer
+responses:
+  200:
+    description: Data berdasarkan ID
+    schema:
+      $ref: '#/definitions/Data'
+  404:
+    description: Data tidak ditemukan

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Create</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <form action="/input" method="post">
+            Nama: <input type="text" name="nama" required><br>
+            Alamat: <input type="text" name="alamat" required><br>
+            <input type="submit" value="Submit">
+        </form>
+        <a href="/" class="home-button">Kembali ke Home</a>
+    </div>
+</body>
+</html>

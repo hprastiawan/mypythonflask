@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search and Update Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="purple-theme">
+
+    <h2>Search Data to Update</h2>
+
+    <div class="form-container">
+        <form action="/search_update" method="post">
+            <input type="text" name="nama" placeholder="Enter name to search" required>
+            <input type="submit" value="Search">
+        </form>
+        <a href="/" class="home-button">Kembali ke Home</a>
+    </div>
+    
+    {% if data_list %}
+    <h3>Data Found:</h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Action</th>
+        </tr>
+        {% for data in data_list %}
+        <tr>
+            <td>{{ data['id'] }}</td>
+            <td>{{ data['nama'] }}</td>
+            <td>{{ data['alamat'] }}</td>
+            <td>
+                <button onclick="showUpdateForm({{ data['id'] }}, '{{ data['nama'] }}', '{{ data['alamat'] }}')">Update</button>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    <div id="updateForm" style="display:none;">
+        <h3>Update Data:</h3>
+        <form action="/update" method="post">
+            <input type="hidden" id="updateId" name="id">
+            <input type="text" id="updateNama" name="nama" placeholder="New Name" required>
+            <input type="text" id="updateAlamat" name="alamat" placeholder="New Address" required>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    
+    <script>
+        function showUpdateForm(id, nama, alamat) {
+            document.getElementById('updateId').value = id;
+            document.getElementById('updateNama').value = nama;
+            document.getElementById('updateAlamat').value = alamat;
+            document.getElementById('updateForm').style.display = 'block';
+        }
+    </script>
+    
+    {% else %}
+    <p>Tidak ada data yang ditemukan untuk nama yang diberikan.</p>
+    {% endif %}
+    
+    </body>
+    </html>

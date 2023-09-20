@@ -1,0 +1,17 @@
+definitions:
+  Data:
+    type: object
+    properties:
+      id:
+        type: integer
+      nama:
+        type: string
+      alamat:
+        type: string
+responses:
+  200:
+    description: Daftar semua data
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/Data'

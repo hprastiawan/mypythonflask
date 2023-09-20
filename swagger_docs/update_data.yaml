@@ -1,0 +1,19 @@
+parameters:
+  - name: data_id
+    in: path
+    description: ID dari data yang ingin diperbarui
+    required: true
+    type: integer
+  - in: body
+    name: body
+    description: Data yang akan diperbarui
+    required: true
+    schema:
+      $ref: '#/definitions/Data'
+responses:
+  200:
+    description: Data berhasil diperbarui
+    schema:
+      $ref: '#/definitions/Data'
+  404:
+    description: Data tidak ditemukan

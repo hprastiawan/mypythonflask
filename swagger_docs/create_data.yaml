@@ -1,0 +1,12 @@
+parameters:
+  - in: body
+    name: body
+    description: Data yang akan ditambahkan
+    required: true
+    schema:
+      $ref: '#/definitions/Data'
+responses:
+  201:
+    description: Data berhasil ditambahkan
+    schema:
+      $ref: '#/definitions/Data'

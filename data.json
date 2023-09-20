@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "nama": "Budi Santoso",
+        "alamat": "Jakarta Barat"
+    },
+    {
+        "id": 3,
+        "nama": "Hendra Prastiawan",
+        "alamat": "Jakarta Selatan"
+    },
+    {
+        "id": 4,
+        "nama": "Raka",
+        "alamat": "Semarang"
+    },
+    {
+        "id": 5,
+        "nama": "Hendra Setiawan",
+        "alamat": "Magelang"
+    },
+    {
+        "id": 6,
+        "nama": "Hendrawan",
+        "alamat": "Sulawesi"
+    },
+    {
+        "nama": "Hendrawati",
+        "alamat": "Papua",
+        "id": 7
+    },
+    {
+        "nama": "Hadi Purnomo",
+        "alamat": "Bengkulu",
+        "id": 8
+    },
+    {
+        "nama": "Hadi",
+        "alamat": "Aceh",
+        "id": 9
+    },
+    {
+        "nama": "Dodi",
+        "alamat": "Medang",
+        "id": 10
+    },
+    {
+        "nama": "Yudha",
+        "alamat": "Serang",
+        "id": 11
+    }
+]
